@@ -1,0 +1,14 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>co.Simplon</groupId>
+  <artifactId>A-Skii</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>A-Skii</name>
+  <description>Un brief à la montagne et sous la neige.</description>
+  <modules>
+    <module>Persistance</module>
+    <module>Business</module>
+    <module>Presentation</module>
+  </modules>
+</project>
