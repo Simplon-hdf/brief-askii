@@ -11,29 +11,53 @@
 
 Database schema.
 
+## Guide d'importation de la base de données
+
+### Prérequis
+
+* PostgreSQL installé sur votre machine
+* Les droits d'administration sur PostgreSQL
+
+### Étapes d'importation
+
+1. **Créer une nouvelle base de données :**
+
+   ```sql
+   CREATE DATABASE askii;
+   ```
+
+2. **Importer le script SQL :**
+
+   Exécutez la commande suivante pour importer le script SQL dans la base de données :
+
+   ```bash
+   psql -U postgres -d askii -f chemin/vers/votre/script.sql
+   ```
+
+   Ou si vous préférez utiliser pgAdmin :
+
+   1. Ouvrez pgAdmin.
+   2. Créez une nouvelle base de données nommée "askii".
+   3. Clic droit sur la base de données > Query Tool.
+   4. Ouvrez le fichier `chemin/vers/votre/script.sql`.
+   5. Exécutez le script.
+
+### Vérification
+
+Pour vérifier que l'importation s'est bien passée, vous pouvez exécuter la commande suivante :
+
+```sql
+SELECT * FROM information_schema.tables 
+WHERE table_schema = 'public';
 ```
-CREATE TABLE product(
-   product_id VARCHAR(50),
-   name VARCHAR(50),
-   price VARCHAR(50),
-   PRIMARY KEY(product_id)
-);
 
-CREATE TABLE cart(
-   cart_id VARCHAR(50),
-   save_date VARCHAR(50),
-   PRIMARY KEY(cart_id)
-);
+Cette commande devrait afficher la liste de toutes les tables créées dans la base de données "askii".
 
-CREATE TABLE product_cart(
-   product_id VARCHAR(50),
-   cart_id VARCHAR(50),
-   quantity VARCHAR(50),
-   PRIMARY KEY(product_id, cart_id),
-   FOREIGN KEY(product_id) REFERENCES product(product_id),
-   FOREIGN KEY(cart_id) REFERENCES cart(cart_id)
-);
+### Exemple de schéma de base de données
 
+Voici un exemple de schéma de base de données que vous pouvez utiliser :
+
+```sql
 INSERT INTO product (product_id, name, price) VALUES
 ('P001', 'Ski Set (Skis + Bindings)', '499.99'),
 ('P002', 'Ski Boots', '299.99'),
