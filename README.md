@@ -7,7 +7,6 @@
         \/                  \/     \/      
 ```
 
-```
 
 Database schema.
 
