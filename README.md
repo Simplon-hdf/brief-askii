@@ -29,17 +29,34 @@ Database schema.
 
    Exécutez la commande suivante pour importer le script SQL dans la base de données :
 
-   ```bash
-   psql -U postgres -d askii -f chemin/vers/votre/script.sql
+ 
+
+```sql
+\c askii
+
+CREATE TABLE product(
+   product_id VARCHAR(50),
+   name VARCHAR(50),
+   price VARCHAR(50),
+   PRIMARY KEY(product_id)
+);
+
+CREATE TABLE cart(
+   cart_id VARCHAR(50),
+   save_date VARCHAR(50),
+   PRIMARY KEY(cart_id)
+);
+
+CREATE TABLE product_cart(
+   product_id VARCHAR(50),
+   cart_id VARCHAR(50),
+   quantity VARCHAR(50),
+   PRIMARY KEY(product_id, cart_id),
+   FOREIGN KEY(product_id) REFERENCES product(product_id),
+   FOREIGN KEY(cart_id) REFERENCES cart(cart_id)
+);
    ```
 
-   Ou si vous préférez utiliser pgAdmin :
-
-   1. Ouvrez pgAdmin.
-   2. Créez une nouvelle base de données nommée "askii".
-   3. Clic droit sur la base de données > Query Tool.
-   4. Ouvrez le fichier `chemin/vers/votre/script.sql`.
-   5. Exécutez le script.
 
 ### Vérification
 
