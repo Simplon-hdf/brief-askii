@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Produit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <nav class="mb-8">
+            <a href="/products" class="text-blue-500 hover:text-blue-700">← Retour aux produits</a>
+        </nav>
+
+        <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg p-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">Ajouter un Produit</h1>
+
+            <form th:action="@{/products}" method="post" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nom du produit :</label>
+                    <input type="text" 
+                           id="name" 
+                           name="name" 
+                           required
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+
+                <div>
+                    <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Prix (€) :</label>
+                    <input type="number" 
+                           id="price" 
+                           name="price" 
+                           step="0.01" 
+                           min="0" 
+                           required
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+
+                <button type="submit" 
+                        class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline">
+                    Créer le produit
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html> 
