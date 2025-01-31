@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -51,13 +52,13 @@ class CartServiceTest {
     @BeforeEach
     void setUp() {
         testCart = new Cart();
-        testCart.setCart_id("cart123");
-        testCart.setSave_date(null);
+        testCart.setCartId("test-cart-id");
+        testCart.setSaveDate(null);
 
         testProduct = new Product();
-        testProduct.setProduct_id("prod123");
+        testProduct.setProductId("test-product-id");
         testProduct.setName("Test Product");
-        testProduct.setPrice("99.99");
+        testProduct.setPrice("10.00");
 
         testProductCart = new ProductCart();
         testProductCart.setCart(testCart);
@@ -74,14 +75,14 @@ class CartServiceTest {
     void getCurrentCart_WithNoExistingCart_ShouldCreateNewCart() {
         // Arrange
         when(cartRepository.save(any(Cart.class))).thenReturn(testCart);
-        when(productCartRepository.findByCartId(testCart.getCart_id())).thenReturn(Arrays.asList());
+        when(productCartRepository.findByCartId(testCart.getCartId())).thenReturn(new ArrayList<>());
 
         // Act
         CartDTO result = cartService.getCurrentCart();
 
         // Assert
         assertNotNull(result);
-        assertEquals(testCart.getCart_id(), result.getCartId());
+        assertEquals(testCart.getCartId(), result.getCartId());
         assertTrue(result.getItems().isEmpty());
         assertEquals(0.0, result.getTotalPrice());
         verify(cartRepository).save(any(Cart.class));
@@ -91,13 +92,13 @@ class CartServiceTest {
     void addToCart_WithValidProduct_ShouldAddToCart() {
         // Arrange
         when(cartRepository.save(any(Cart.class))).thenReturn(testCart);
-        when(productRepository.findById("prod123")).thenReturn(Optional.of(testProduct));
+        when(productRepository.findById("test-product-id")).thenReturn(Optional.of(testProduct));
         when(productCartRepository.save(any(ProductCart.class))).thenReturn(testProductCart);
         when(productCartRepository.findByCartId(anyString())).thenReturn(Arrays.asList(testProductCart));
         when(productConverter.entityToDto(testProduct)).thenReturn(testProductDTO);
 
         // Act
-        CartDTO result = cartService.addToCart("prod123", 2);
+        CartDTO result = cartService.addToCart("test-product-id", 2);
 
         // Assert
         assertNotNull(result);
@@ -105,7 +106,7 @@ class CartServiceTest {
         assertEquals(1, result.getItems().size());
         assertEquals(testProductDTO, result.getItems().get(0).getProduct());
         assertEquals(2, result.getItems().get(0).getQuantity());
-        assertEquals(199.98, result.getTotalPrice());
+        assertEquals(20.0, result.getTotalPrice());
         verify(productCartRepository).save(any(ProductCart.class));
     }
 
@@ -129,13 +130,13 @@ class CartServiceTest {
         when(productCartRepository.findByCartId(anyString())).thenReturn(Arrays.asList());
 
         // Act
-        CartDTO result = cartService.removeFromCart("prod123");
+        CartDTO result = cartService.removeFromCart("test-product-id");
 
         // Assert
         assertNotNull(result);
         assertTrue(result.getItems().isEmpty());
         assertEquals(0.0, result.getTotalPrice());
-        verify(productCartRepository).deleteByCartAndProductId(anyString(), eq("prod123"));
+        verify(productCartRepository).deleteByCartAndProductId(anyString(), eq("test-product-id"));
     }
 
     @Test

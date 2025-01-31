@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,9 +39,9 @@ class ProductServiceTest {
     @BeforeEach
     void setUp() {
         testProduct = new Product();
-        testProduct.setProduct_id("123");
+        testProduct.setProductId("test-product-id");
         testProduct.setName("Test Product");
-        testProduct.setPrice("99.99");
+        testProduct.setPrice("10.00");
 
         testProductDTO = new ProductDTO();
         testProductDTO.setProductId("123");
@@ -51,7 +52,7 @@ class ProductServiceTest {
     @Test
     void getAllProducts_ShouldReturnAllProducts() {
         // Arrange
-        List<Product> products = Arrays.asList(testProduct);
+        List<Product> products = Collections.singletonList(testProduct);
         when(productRepository.findAll()).thenReturn(products);
         when(productConverter.entityToDto(testProduct)).thenReturn(testProductDTO);
 

@@ -17,21 +17,21 @@ class ProductConverterTest {
     }
     
     @Test
-    void entityToDto_WithValidProduct_ShouldConvertAllFields() {
+    void entityToDto_ShouldConvertProductToDTO() {
         // Arrange
         Product product = new Product();
-        product.setProduct_id("123");
+        product.setProductId("test-id");
         product.setName("Test Product");
-        product.setPrice("99.99");
+        product.setPrice("10.00");
         
         // Act
         ProductDTO result = converter.entityToDto(product);
         
         // Assert
         assertNotNull(result);
-        assertEquals("123", result.getProductId());
+        assertEquals("test-id", result.getProductId());
         assertEquals("Test Product", result.getName());
-        assertEquals("99.99", result.getPrice());
+        assertEquals("10.00", result.getPrice());
     }
     
     @Test
@@ -44,21 +44,21 @@ class ProductConverterTest {
     }
     
     @Test
-    void dtoToEntity_WithValidDTO_ShouldConvertAllFields() {
+    void dtoToEntity_ShouldConvertDTOToProduct() {
         // Arrange
         ProductDTO dto = new ProductDTO();
-        dto.setProductId("123");
+        dto.setProductId("test-id");
         dto.setName("Test Product");
-        dto.setPrice("99.99");
+        dto.setPrice("10.00");
         
         // Act
         Product result = converter.dtoToEntity(dto);
         
         // Assert
         assertNotNull(result);
-        assertEquals("123", result.getProduct_id());
+        assertEquals("test-id", result.getProductId());
         assertEquals("Test Product", result.getName());
-        assertEquals("99.99", result.getPrice());
+        assertEquals("10.00", result.getPrice());
     }
     
     @Test
