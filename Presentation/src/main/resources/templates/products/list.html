@@ -10,7 +10,23 @@
     <div class="container mx-auto px-4 py-8">
         <header class="mb-8">
             <h1 class="text-3xl font-bold text-gray-900">Nos Produits</h1>
+            <a href="/products/new" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Ajouter un produit
+            </a>
         </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div th:each="product : ${products}" class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-gray-800" th:text="${product.name}">Nom du produit</h2>
+                    <p class="mt-2 text-gray-600" th:text="${product.price + ' €'}">Prix</p>
+                    <a th:href="@{/products/{id}(id=${product.product_id})}" 
+                       class="mt-4 inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                        Voir détails
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html> 
