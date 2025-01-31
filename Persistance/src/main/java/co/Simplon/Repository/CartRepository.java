@@ -1,6 +1,6 @@
 package co.Simplon.Repository;
 
-import co.Simplon.Entity.*;
+import co.Simplon.Entity.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
