@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <nav th:fragment="navbar" class="bg-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand -->
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-xl font-bold text-gray-800">
+                        AskiiShop
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a th:href="@{/products}" 
+                       th:class="${#httpServletRequest.requestURI.contains('/products') ? 'text-blue-500' : 'text-gray-600'} + ' hover:text-blue-500'">
+                        Produits
+                    </a>
+                </div>
+
+                <!-- Cart Icon -->
+                <div class="flex items-center">
+                    <a th:href="@{/cart}" class="relative group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span th:if="${cartItemCount != null and cartItemCount > 0}" 
+                              class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+                              th:text="${cartItemCount}">
+                            0
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button p-2 rounded-md hover:bg-gray-100 focus:outline-none">
+                        <svg class="h-6 w-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a th:href="@{/products}" 
+                       th:class="${#httpServletRequest.requestURI.contains('/products') ? 'bg-blue-50 text-blue-500' : 'text-gray-600'} + ' block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-50 hover:text-blue-500'">
+                        Produits
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript pour le menu mobile -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const mobileMenuButton = document.querySelector('.mobile-menu-button');
+                const mobileMenu = document.querySelector('.mobile-menu');
+
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            });
+        </script>
+    </nav>
+</body>
+</html> 

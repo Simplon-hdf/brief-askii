@@ -8,29 +8,28 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.IdClass;
 
-
 @Entity
 @IdClass(ProductCartId.class)
 public class ProductCart {
 
-	@Column(length = 50)
-    private String quantity;
+	@Column(nullable = false)
+    private Integer quantity;
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cart_id")
+    @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(final String quantity) {
+    public void setQuantity(final Integer quantity) {
         this.quantity = quantity;
     }
 
