@@ -47,11 +47,6 @@
                 <artifactId>Business</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <dependency>
-                <groupId>co.Simplon</groupId>
-                <artifactId>Presentation</artifactId>
-                <version>${project.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
