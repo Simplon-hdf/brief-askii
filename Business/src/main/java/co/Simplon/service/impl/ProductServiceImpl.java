@@ -48,7 +48,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductDTO updateProduct(String id, ProductDTO productDTO) {
         if (productRepository.existsById(id)) {
             Product product = productConverter.dtoToEntity(productDTO);
-            product.setProduct_id(id);
+            product.setProductId(id);
             Product updatedProduct = productRepository.save(product);
             return productConverter.entityToDto(updatedProduct);
         }

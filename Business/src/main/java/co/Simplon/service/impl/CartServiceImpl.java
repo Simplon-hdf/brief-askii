@@ -76,7 +76,7 @@ public class CartServiceImpl implements CartService {
             return null;
         }
 
-        productCartRepository.deleteByCartAndProductId(currentCart.getCart_id(), productId);
+        productCartRepository.deleteByCartAndProductId(currentCart.getCartId(), productId);
         return convertToDTO(currentCart);
     }
 
@@ -86,7 +86,7 @@ public class CartServiceImpl implements CartService {
             return null;
         }
 
-        currentCart.setSave_date(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+        currentCart.setSaveDate(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
         cartRepository.save(currentCart);
         
         Cart savedCart = currentCart;
@@ -98,7 +98,7 @@ public class CartServiceImpl implements CartService {
     @Override
     public void clearCart() {
         if (currentCart != null) {
-            productCartRepository.deleteByCartId(currentCart.getCart_id());
+            productCartRepository.deleteByCartId(currentCart.getCartId());
             cartRepository.delete(currentCart);
             currentCart = null;
         }
@@ -106,19 +106,19 @@ public class CartServiceImpl implements CartService {
 
     private void initializeNewCart() {
         currentCart = new Cart();
-        currentCart.setCart_id(UUID.randomUUID().toString());
+        currentCart.setCartId(UUID.randomUUID().toString());
         cartRepository.save(currentCart);
     }
 
     private CartDTO convertToDTO(Cart cart) {
         CartDTO dto = new CartDTO();
-        dto.setCartId(cart.getCart_id());
-        dto.setSaveDate(cart.getSave_date());
+        dto.setCartId(cart.getCartId());
+        dto.setSaveDate(cart.getSaveDate());
 
         List<CartItemDTO> items = new ArrayList<>();
         double totalPrice = 0.0;
 
-        List<ProductCart> productCarts = productCartRepository.findByCartId(cart.getCart_id());
+        List<ProductCart> productCarts = productCartRepository.findByCartId(cart.getCartId());
         for (ProductCart pc : productCarts) {
             CartItemDTO item = new CartItemDTO();
             item.setProduct(productConverter.entityToDto(pc.getProduct()));
