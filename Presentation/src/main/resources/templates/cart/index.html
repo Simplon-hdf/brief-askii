@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Panier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <nav class="mb-8">
+            <a href="/products" class="text-blue-500 hover:text-blue-700">← Continuer mes achats</a>
+        </nav>
+
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Mon Panier</h1>
+
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <div th:if="${#lists.isEmpty(cartItems)}" class="text-center py-8">
+                <p class="text-gray-500">Votre panier est vide</p>
+                <a href="/products" class="mt-4 inline-block text-blue-500 hover:text-blue-700">
+                    Parcourir les produits
+                </a>
+            </div>
+
+            <div th:unless="${#lists.isEmpty(cartItems)}">
+                <div class="space-y-4">
+                    <div th:each="item : ${cartItems}" class="flex items-center justify-between border-b pb-4">
+                        <div>
+                            <h3 class="text-lg font-semibold" th:text="${item.product.name}">Nom du produit</h3>
+                            <p class="text-gray-600">
+                                <span th:text="${item.product.price + ' €'}">Prix</span> x 
+                                <span th:text="${item.quantity}">Quantité</span>
+                            </p>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-bold" th:text="${item.product.price * item.quantity + ' €'}">Total</p>
+                            <form th:action="@{/cart/remove}" method="post" class="mt-2">
+                                <input type="hidden" name="product_id" th:value="${item.product.product_id}">
+                                <button type="submit" 
+                                        class="text-red-500 hover:text-red-700 text-sm">
+                                    Supprimer
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 border-t pt-6">
+                    <div class="flex justify-between items-center text-xl font-bold">
+                        <span>Total</span>
+                        <span th:text="${totalPrice + ' €'}">Total du panier</span>
+                    </div>
+
+                    <form th:action="@{/cart/save}" method="post" class="mt-8">
+                        <button type="submit" 
+                                class="w-full bg-green-500 text-white font-bold py-3 px-4 rounded hover:bg-green-600 focus:outline-none focus:shadow-outline">
+                            Sauvegarder le panier
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
