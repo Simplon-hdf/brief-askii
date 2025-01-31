@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/askii
+      - SPRING_DATASOURCE_USERNAME=askii
+      - SPRING_DATASOURCE_PASSWORD=askii
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - askii-network
+
+  db:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=askii
+      - POSTGRES_USER=askii
+      - POSTGRES_PASSWORD=askii
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - askii-network
+
+volumes:
+  postgres-data:
+
+networks:
+  askii-network:
+    driver: bridge 
