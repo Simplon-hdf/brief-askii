@@ -7,18 +7,18 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.2</version>
+        <version>3.4.2</version>
     </parent>
 
-    <groupId>co.Simplon</groupId>
+    <groupId>co.simplon</groupId>
     <artifactId>askii</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>Persistance</module>
-        <module>Business</module>
-        <module>Presentation</module>
+        <module>persistance</module>
+        <module>business</module>
+        <module>presentation</module>
     </modules>
 
     <properties>
@@ -38,13 +38,13 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>co.Simplon</groupId>
-                <artifactId>Persistance</artifactId>
+                <groupId>co.simplon</groupId>
+                <artifactId>persistance</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>co.Simplon</groupId>
-                <artifactId>Business</artifactId>
+                <groupId>co.simplon</groupId>
+                <artifactId>business</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

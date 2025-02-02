@@ -11,7 +11,7 @@ FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 
 # Copy JAR from builder stage
-COPY --from=builder /build/Presentation/target/*.jar app.jar
+COPY --from=builder /build/presentation/target/*.jar app.jar
 
 # Create volume for logs
 VOLUME /app/logs
