@@ -1,13 +1,14 @@
-package co.Simplon.Repository;
+package co.simplon.repository;
 
-import co.Simplon.Entity.Cart;
-import co.Simplon.Entity.Product;
-import co.Simplon.Entity.ProductCart;
-import co.Simplon.Entity.ProductCartId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+import co.simplon.entity.Cart;
+import co.simplon.entity.Product;
+import co.simplon.entity.ProductCart;
+import co.simplon.entity.ProductCartId;
 
 import java.util.List;
 

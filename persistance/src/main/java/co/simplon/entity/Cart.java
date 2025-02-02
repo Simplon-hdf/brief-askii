@@ -1,4 +1,4 @@
-package co.Simplon.Entity;
+package co.simplon.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

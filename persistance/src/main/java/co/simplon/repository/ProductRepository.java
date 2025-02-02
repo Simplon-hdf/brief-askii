@@ -1,7 +1,8 @@
-package co.Simplon.Repository;
+package co.simplon.repository;
 
-import co.Simplon.Entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import co.simplon.entity.Product;
 
 
 public interface ProductRepository extends JpaRepository<Product, String> {

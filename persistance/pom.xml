@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>co.Simplon</groupId>
+		<groupId>co.simplon</groupId>
 		<artifactId>askii</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>Persistance</artifactId>
+	<artifactId>persistance</artifactId>
 	<version>1.0.0</version>
-	<name>Persistance</name>
+	<name>persistance</name>
 	<description>La partie persistance du back.</description>
 	<url/>
 	<licenses>

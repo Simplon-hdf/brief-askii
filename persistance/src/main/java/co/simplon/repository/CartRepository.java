@@ -1,7 +1,8 @@
-package co.Simplon.Repository;
+package co.simplon.repository;
 
-import co.Simplon.Entity.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import co.simplon.entity.Cart;
 
 
 public interface CartRepository extends JpaRepository<Cart, String> {

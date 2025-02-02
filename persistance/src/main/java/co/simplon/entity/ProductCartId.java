@@ -1,4 +1,4 @@
-package co.Simplon.Entity;
+package co.simplon.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
