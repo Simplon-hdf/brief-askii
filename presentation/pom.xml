@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>co.Simplon</groupId>
+		<groupId>co.simplon</groupId>
 		<artifactId>askii</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>Presentation</artifactId>
-	<name>Presentation</name>
+	<artifactId>presentation</artifactId>
+	<name>presentation</name>
 	<description>La partie présentation du back.</description>
 	<url/>
 	<licenses>
@@ -28,8 +28,8 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>co.Simplon</groupId>
-			<artifactId>Business</artifactId>
+			<groupId>co.simplon</groupId>
+			<artifactId>business</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -58,7 +58,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>co.Simplon.PresentationApplication</mainClass>
+					<mainClass>co.simplon.PresentationApplication</mainClass>
 					<layout>JAR</layout>
 				</configuration>
 				<executions>
