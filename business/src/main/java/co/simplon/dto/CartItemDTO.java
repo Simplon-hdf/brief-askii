@@ -1,4 +1,4 @@
-package co.Simplon.dto;
+package co.simplon.dto;
 
 public class CartItemDTO {
     private ProductDTO product;

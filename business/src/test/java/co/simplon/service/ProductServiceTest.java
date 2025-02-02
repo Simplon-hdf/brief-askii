@@ -1,4 +1,4 @@
-package co.Simplon.service;
+package co.simplon.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -15,11 +15,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import co.Simplon.Entity.Product;
-import co.Simplon.Repository.ProductRepository;
-import co.Simplon.converter.ProductConverter;
-import co.Simplon.dto.ProductDTO;
-import co.Simplon.service.impl.ProductServiceImpl;
+import co.simplon.entity.Product;
+import co.simplon.repository.ProductRepository;
+import co.simplon.converter.ProductConverter;
+import co.simplon.dto.ProductDTO;
+import co.simplon.service.impl.ProductServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 class ProductServiceTest {

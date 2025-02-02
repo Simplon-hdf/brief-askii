@@ -1,9 +1,9 @@
-package co.Simplon.converter;
+package co.simplon.converter;
 
 import org.springframework.stereotype.Component;
 
-import co.Simplon.dto.ProductDTO;
-import co.Simplon.Entity.Product;
+import co.simplon.entity.Product;
+import co.simplon.dto.ProductDTO;
 
 @Component
 public class ProductConverter {

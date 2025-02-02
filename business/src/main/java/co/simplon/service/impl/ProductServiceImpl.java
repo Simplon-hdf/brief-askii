@@ -1,15 +1,15 @@
-package co.Simplon.service.impl;
+package co.simplon.service.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import co.Simplon.Entity.Product;
-import co.Simplon.Repository.ProductRepository;
-import co.Simplon.converter.ProductConverter;
-import co.Simplon.dto.ProductDTO;
-import co.Simplon.service.ProductService;
+import co.simplon.entity.Product;
+import co.simplon.repository.ProductRepository;
+import co.simplon.converter.ProductConverter;
+import co.simplon.dto.ProductDTO;
+import co.simplon.service.ProductService;
 
 @Service
 @Transactional

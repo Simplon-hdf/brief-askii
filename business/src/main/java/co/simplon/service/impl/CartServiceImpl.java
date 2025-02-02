@@ -1,4 +1,4 @@
-package co.Simplon.service.impl;
+package co.simplon.service.impl;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -9,16 +9,16 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import co.Simplon.Entity.Cart;
-import co.Simplon.Entity.Product;
-import co.Simplon.Entity.ProductCart;
-import co.Simplon.Repository.CartRepository;
-import co.Simplon.Repository.ProductCartRepository;
-import co.Simplon.Repository.ProductRepository;
-import co.Simplon.converter.ProductConverter;
-import co.Simplon.dto.CartDTO;
-import co.Simplon.dto.CartItemDTO;
-import co.Simplon.service.CartService;
+import co.simplon.entity.Cart;
+import co.simplon.entity.Product;
+import co.simplon.entity.ProductCart;
+import co.simplon.repository.CartRepository;
+import co.simplon.repository.ProductCartRepository;
+import co.simplon.repository.ProductRepository;
+import co.simplon.converter.ProductConverter;
+import co.simplon.dto.CartDTO;
+import co.simplon.dto.CartItemDTO;
+import co.simplon.service.CartService;
 
 @Service
 @Transactional

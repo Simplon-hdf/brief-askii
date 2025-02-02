@@ -1,6 +1,6 @@
-package co.Simplon.service;
+package co.simplon.service;
 
-import co.Simplon.dto.CartDTO;
+import co.simplon.dto.CartDTO;
 
 public interface CartService {
     CartDTO getCurrentCart();

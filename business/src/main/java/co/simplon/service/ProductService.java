@@ -1,7 +1,8 @@
-package co.Simplon.service;
+package co.simplon.service;
 
 import java.util.List;
-import co.Simplon.dto.ProductDTO;
+
+import co.simplon.dto.ProductDTO;
 
 public interface ProductService {
     List<ProductDTO> getAllProducts();

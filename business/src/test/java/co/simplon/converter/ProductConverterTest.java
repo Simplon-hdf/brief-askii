@@ -1,11 +1,12 @@
-package co.Simplon.converter;
+package co.simplon.converter;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import co.Simplon.Entity.Product;
-import co.Simplon.dto.ProductDTO;
+import co.simplon.entity.Product;
+import co.simplon.converter.ProductConverter;
+import co.simplon.dto.ProductDTO;
 
 class ProductConverterTest {
     
