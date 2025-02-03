@@ -2,6 +2,8 @@ package co.simplon.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.Set;
@@ -12,6 +14,7 @@ public class Product {
 
     @Id
     @Column(nullable = false, updatable = false, length = 50)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String productId;
 
     @Column(length = 50)
